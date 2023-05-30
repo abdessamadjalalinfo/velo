@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/liste_velo', [App\Http\Controllers\VeloController::class, 'liste_velo'])->name('liste_velo')->middleware('auth');
+Route::get('/ajouter_velo', [App\Http\Controllers\VeloController::class, 'ajouter_velo'])->name('ajouter_velo')->middleware('auth');
+Route::post('/ajouter_velo', [App\Http\Controllers\VeloController::class, 'store'])->name('velos.store')->middleware('auth');

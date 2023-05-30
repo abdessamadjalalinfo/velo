@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('velo_id');
             $table->foreign('velo_id')->references('id')->on('velos');
-            $table->string('logo');
+            $table->string('chemin');
             $table->timestamps();
         });
     }

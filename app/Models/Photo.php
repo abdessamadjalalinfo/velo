@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     use HasFactory;
+    protected $fillable = ['chemin'];
+
+    public function velo()
+    {
+        return $this->belongsTo(Velo::class);
+    }
 }
