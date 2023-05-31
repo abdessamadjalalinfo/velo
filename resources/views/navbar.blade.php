@@ -9,7 +9,7 @@
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Liste des vélos</a></li>
-              <li><a class="dropdown-item" href="#">Ajouter un vélo</a></li>
+              <li><a class="dropdown-item" href="{{route('ajouter_velo')}}">Ajouter un vélo</a></li>
               <li><a class="dropdown-item" href="#">Liste des utilisateurs</a></li>
               
             </ul>

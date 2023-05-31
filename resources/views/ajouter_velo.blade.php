@@ -43,7 +43,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Photos</label>
-                        <input type="file" name="photos[]" class="form-control" >
+                        <input type="file" name="photos" class="form-control" >
                     </div>
                     
                     
