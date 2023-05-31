@@ -16,6 +16,24 @@
 
                     @include('navbar') 
                 </div>
+                <div class="container">
+                    <div class="row">
+                        @foreach($velos as $velo)
+                        <div class="col-3">
+                           
+                            <div class="card" style="width: 12rem;">
+                                @foreach ($velo->photos as $photo)
+                                        <img src="{{ asset('images/'.$photo->chemin) }}" class="card-img-top" alt="Photo du vélo">
+                                @endforeach  <div class="card-body">
+                                  <h6 class="card-title">{{$velo->marque}}</h6>
+                                  <a href="#" class="btn btn-primary">Réserver</a>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>
