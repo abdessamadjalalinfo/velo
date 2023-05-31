@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class VeloController extends Controller
 {
-    public function ajouter_velo()
+    public function liste_velo()
     {
-        return view('ajouter_velo');
+        return view('liste_velo');
     }
     public function store(Request $request)
     {
