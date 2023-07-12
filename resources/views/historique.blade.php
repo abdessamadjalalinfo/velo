@@ -23,23 +23,30 @@
         <br>
         <div class="container">
             <div class="row">
-                @foreach($velos as $velo)
-                <div class="col-3">
-                   
-                    <div class="card" style="width: 12rem;">
-                        @foreach ($velo->photos as $photo)
-                                <img src="{{ asset('images/'.$photo->chemin) }}" class="card-img-top" alt="Photo du vélo">
-                        @endforeach  <div class="card-body">
-                          <h6 class="card-title">{{$velo->marque}}</h6>
-                          <a href="{{route('voir',$velo->id)}}" class="btn btn-primary">Réserver</a>
-                          @if(Auth::user()->type=="admin")
-                          <a href="{{route('deletevelo',$velo->id)}}" class="btn btn-danger">X</a>
-                        @endif
-                        </div>
-                    </div>
-                   
-                </div>
-                @endforeach
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Marque</th>
+                        <th scope="col">Date debut</th>
+                        <th scope="col">Date Fin</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($locations as $location)
+                      <tr>
+                        <td> <img width="50"   src="{{ asset('images/'.$location->velo->photos()->first()->chemin)}}"></td>
+                        <th scope="row">{{$location->velo->marque}}</th>
+                        <td>{{$location->debut}}</td>
+                        <td>{{$location->fin}}</td>
+                       
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+               
+                
+               
             </div>
         </div>
     </div>

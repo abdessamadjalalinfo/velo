@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Velo;
+use Carbon\Carbon;
 class HomeController extends Controller
 {
     /**
@@ -23,7 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $velos = Velo::with('photos')->get();
+        //$velos = Velo::with('photos')->get();
+        $currentDateTime = Carbon::now();
+        $velos = Velo::whereDoesntHave('locations', function ($query) use ($currentDateTime) {
+            $query->where('debut', '<=', $currentDateTime)
+                ->where('fin', '>=', $currentDateTime);
+        })
+        ->get();
+
         return view('home',compact('velos'));
     }
 }
